@@ -16,5 +16,5 @@ public class Savings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int available_money;
+    private int availableMoney;
 }

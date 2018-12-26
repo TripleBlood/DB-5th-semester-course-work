@@ -3,6 +3,7 @@ package ligai.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Getter
@@ -24,9 +25,12 @@ public class Delivery {
 
     @ManyToOne
     @JoinColumn(name = "accepted_id")
-    private User accept_user;
+    private User acceptUser;
 
     @ManyToOne
     @JoinColumn(name = "provider_id")
     private User provider;
+
+    @OneToMany(mappedBy = "delivery")
+    private ArrayList<Delivery_product> delivery_products;
 }

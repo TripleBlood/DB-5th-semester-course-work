@@ -10,12 +10,6 @@ import ligai.security.states.State;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * 05.08.2017
- *
- * @author Marsel Sidikov (First Software Engineering Platform)
- * @version 1.0
- */
 // UserDetails - интерфейс, который описывает объек безопасности
 // реализуем интерфейс по-своему
 public class UserDetailsImpl implements UserDetails {

@@ -1,9 +1,10 @@
 package ligai.models;
 
-import ligai.enums.Reqest_status;
+import ligai.enums.Request_status;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Getter
@@ -21,16 +22,19 @@ public class Request {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Reqest_status reqest_status;
+    private Request_status requestStatus;
 
     @Temporal(TemporalType.DATE)
-    private Date creation_date;
+    private Date creationDate;
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = true)
-    private Date completion_date;
+    private Date completionDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "request")
+    private ArrayList<Delivery_product> delivery_products;
 }

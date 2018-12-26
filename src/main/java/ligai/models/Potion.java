@@ -27,11 +27,20 @@ public class Potion extends Product {
     )
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    @Builder(builderMethodName = "ingredientBuilder")
-    public Potion(Long id, String name, String description, int available, int cost, Type type, List<Ingredient> ingredients){
-        super(id, name, description, available, cost, type);
+    @Builder(builderMethodName = "potionBuilder", builderClassName = "builder")
+    public Potion(Long id, String name, String description, int available, int cost,  List<Ingredient> ingredients, double volume){
+        super(id, name, description, available, cost, Type.POTION);
         this.ingredients = ingredients;
+        this.volume = volume;
     }
+
+    public static class PotionBuilder extends ProductBuilder{
+        PotionBuilder() {
+            super();
+        }
+    }
+
+    private double volume;
 
     //По сути в табличке есть только одно поле, которое является и первичным и внешним на проодукт ключем
 }

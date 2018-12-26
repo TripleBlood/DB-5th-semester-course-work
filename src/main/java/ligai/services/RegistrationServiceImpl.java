@@ -1,22 +1,16 @@
-package ru.itis.services;
+package ligai.services;
 
+import ligai.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.itis.forms.UserRegistrationForm;
-import ru.itis.models.User;
-import ru.itis.repositories.UsersRepository;
-import ru.itis.security.role.Role;
-import ru.itis.security.states.State;
+import ligai.forms.UserRegistrationForm;
+import ligai.models.User;
+import ligai.repositories.UsersRepository;
+import ligai.security.role.Role;
+import ligai.security.states.State;
 
-/**
- * 10.11.2017
- * RegistrationServiceImpl
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
 
@@ -30,10 +24,15 @@ public class RegistrationServiceImpl implements RegistrationService {
         // создаем нового пользователя для БД с ролью USER
         User newUser = User.builder()
                 .login(userForm.getLogin())
-                .hashPassword(passwordEncoder.encode(userForm.getPassword()))
+                .pass(passwordEncoder.encode(userForm.getPass()))
+                .status(userForm.getStatus())
+                .name(userForm.getName())
+                .magic_index(userForm.getMagic_index())
+                .spentGold(0)
                 .role(Role.USER)
                 .state(State.CONFIRMED)
                 .build();
+
         // сохраняем пользователя
         usersRepository.save(newUser);
     }

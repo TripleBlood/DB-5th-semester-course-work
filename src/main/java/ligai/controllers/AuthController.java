@@ -1,4 +1,4 @@
-package ru.itis.controllers;
+package ligai.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -7,22 +7,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.itis.models.User;
-import ru.itis.security.details.UserDetailsImpl;
-import ru.itis.security.role.Role;
-import ru.itis.services.AuthenticationService;
+import ligai.models.User;
+import ligai.security.role.Role;
+import ligai.services.AuthenticationService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
-import java.util.Random;
 
-/**
- * 10.11.2017
- * AuthController
- *
- * @author Sidikov Marsel (First Software Engineering Platform)
- * @version v1.0
- */
+
 @Controller
 public class AuthController {
 
@@ -65,10 +57,10 @@ public class AuthController {
             // если это просто пользователь
             if (user.getRole().equals(Role.USER)) {
                 // отдаем ему страницу профиля
-                return "redirect:/user/profile";
+                return "redirect:/user/shop";
             } else if (user.getRole().equals(Role.ADMIN)) {
                 // если админ - отдаем страницу админа
-                return "redirect:/admin/users";
+                return "redirect:/admin";
             }
         }
         // если сессии нет - на логин кидаем

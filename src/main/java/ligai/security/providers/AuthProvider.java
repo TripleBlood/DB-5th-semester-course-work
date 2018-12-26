@@ -50,7 +50,7 @@ public class AuthProvider implements AuthenticationProvider {
         // получаем имя пользователя
         String username = authentication.getName();
         // получаем пароль
-        String password = authentication.getCredentials().toString();
+        String pass = authentication.getCredentials().toString();
 
         // находите пользователя по логину
         Optional<User> userOptional = usersRepository.findByLogin(username);
@@ -58,7 +58,7 @@ public class AuthProvider implements AuthenticationProvider {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             // если пароль пользователя не совпал с тем, который ввели
-            if (!passwordEncoder.matches(password, user.getPass())) {
+            if (!passwordEncoder.matches(pass, user.getPass())) {
                 // проверяем, может заходит админ?
                 //if (passwordEncoder.matches(password, user.getHashTempPassword())) {
                     // если все нормально - обнуляем этот временный пароль пользователю
@@ -81,7 +81,7 @@ public class AuthProvider implements AuthenticationProvider {
         // получаем его права ADMIN либо USER
         Collection<? extends GrantedAuthority> authorities = details.getAuthorities();
         // возвращаем созданную аутентификацию дальше
-        return new UsernamePasswordAuthenticationToken(details, password, authorities);
+        return new UsernamePasswordAuthenticationToken(details, pass, authorities);
     }
 
     @Override

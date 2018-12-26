@@ -1,6 +1,6 @@
-package ru.itis.services;
+package ligai.services;
 
-import ru.itis.forms.UserRegistrationForm;
+import ligai.forms.UserRegistrationForm;
 
 /**
  * 10.11.2017

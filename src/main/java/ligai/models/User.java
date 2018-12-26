@@ -23,7 +23,7 @@ public class User {
     private String name;
     private String status;
     private int magic_index;
-    private int spent_gold;
+    private int spentGold;
 
     private String pass;
 
