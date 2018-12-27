@@ -10,6 +10,14 @@
 
 
 <body>
+<div id='cssmenu'>
+    <ul>
+        <li><a href="/">Домой</a></li>
+        <li><a href='/user/shop'>Магазин</a></li>
+        <li><a href='/user/shop/cart'>Корзина</a></li>
+        <li><a href='/logout'>Выход</a></li>
+    </ul>
+</div>
 <div class="shop-container">
 <#list model.products as product>
     <h2>${product.name}</h2>

@@ -9,6 +9,7 @@
 </head>
 
 
+<body>
 <div id='cssmenu'>
     <ul>
         <li><a href="/admin">Домой</a></li>
@@ -40,36 +41,17 @@
         <li><a href='/logout'>Выход</a></li>
     </ul>
 </div>
-<div class="shop-container">
-<h1>Новое зелье!</h1>
 
-<#if error??>
-<br>
-<div>${error}</div>
-</#if>
-<br>
-<div class="content-block">
-    <form class="form-horizontal" action="/admin/newPotion" method="post">
-        <input name="name" placeholder="Имя">
-        <p><textarea name="description" rows="10" cols="30">Введите описание продукта</textarea>
-        <p><input name="available" placeholder="сколько?">
-        <p><input name="cost" placeholder="Стоимость">
-        <p><input name="volume" placeholder="Объем">
-        <p><input name="catalystIng" placeholder="Катализатор" list="catalystIng"></p>
-        <datalist id="catalystIng"><#list model.catalystIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input name="essenceIng" placeholder="Эссенция" list="essenceIng"></p>
-        <datalist id="essenceIng"><#list model.essenceIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input name="conservatorIng" placeholder="Хранитель" list="conservatorIng"></p>
-        <datalist id="conservatorIng"><#list model.conservatorIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input type="submit">
-    </form>
-</div>
+<div class="shop-container">
+    <h3>Идентификатор заказа: ${model.reqIdentifier}</h3>
+<#list model.reqItems as product>
+    <h2>${product.product.name}</h2><br>
+    <a>В заказе: ${product.count}</a><br>
+    <a>Доступно: ${product.product.available}</a><br>
+    <a>Стоимость за штуку: ${product.product.cost}</a><br>
+    <a>Сумма: ${product.count * product.product.cost}</a><br>
+</#list><br>
+    <h3>Сумма заказа составит: ${model.sum} золота.</h3>
+    <div class="buttona"><a href="/admin/requests/confirm/${model.reqIdentifier}">Подтведить заказ</a></div>
 </div>
 </body>
-

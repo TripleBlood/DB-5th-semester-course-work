@@ -31,6 +31,4 @@ public class Delivery {
     @JoinColumn(name = "provider_id")
     private User provider;
 
-    @OneToMany(mappedBy = "delivery")
-    private ArrayList<Delivery_product> delivery_products;
 }

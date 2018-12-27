@@ -12,36 +12,14 @@
 
 <div id='cssmenu'>
     <ul>
-        <li><a href="/admin">Домой</a></li>
-        <li><a>Продукты</a>
-            <ul>
-                <li><a>Артефакт</a>
-                    <ul>
-                        <li><a href='/admin/listArtefact'>Просмотреть список артефактов</a></li>
-                        <li><a href='/admin/newArtefact'>Создать новый артефакт</a></li>
-                    </ul>
-                </li>
-                <li><a>Ингридиент</a>
-                    <ul>
-                        <li><a href='/admin/listIngredient'>Просмотреть список ингридиенов</a></li>
-                        <li><a href='/admin/newIngredient'>Создать новый ингридиент</a></li>
-                    </ul>
-                </li>
-                <li><a>Зелье</a>
-                    <ul>
-                        <li><a href='/admin/listPotion'>Просмотреть список зельев</a></li>
-                        <li><a href='/admin/newPotion'>Создать нове зелье</a></li>
-                    </ul>
-                </li>
-                <li><a href='/admin/newPotion'>Списки</a></li>
-            </ul>
-        </li>
-        <li><a href='#'>Заказы</a></li>
-        <li><a href='#'>Поставки</a></li>
+        <li><a href="/">Домой</a></li>
+        <li><a href='/login'>Авторизация</a></li>
+        <li><a href='/signUp'>Регистрация</a></li>
         <li><a href='/logout'>Выход</a></li>
     </ul>
 </div>
 
+<div class="shop-container">
 <h1>Добро пожаловать в магический магазинчик!</h1>
 
 <#if error??>
@@ -60,8 +38,5 @@
         <p><input type="submit">
     </form>
 </div>
-
-<form action="/login">
-    <input type="submit" value="Go to to main page" />
-</form>
+</div>
 </body>

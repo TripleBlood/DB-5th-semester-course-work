@@ -12,46 +12,23 @@
 
 <div id='cssmenu'>
     <ul>
-        <li><a href="/admin">Домой</a></li>
-        <li><a>Продукты</a>
-            <ul>
-                <li><a>Артефакт</a>
-                    <ul>
-                        <li><a href='/admin/listArtefact'>Просмотреть список артефактов</a></li>
-                        <li><a href='/admin/newArtefact'>Создать новый артефакт</a></li>
-                    </ul>
-                </li>
-                <li><a>Ингридиент</a>
-                    <ul>
-                        <li><a href='/admin/listIngredient'>Просмотреть список ингридиенов</a></li>
-                        <li><a href='/admin/newIngredient'>Создать новый ингридиент</a></li>
-                    </ul>
-                </li>
-                <li><a>Зелье</a>
-                    <ul>
-                        <li><a href='/admin/listPotion'>Просмотреть список зельев</a></li>
-                        <li><a href='/admin/newPotion'>Создать нове зелье</a></li>
-                    </ul>
-                </li>
-                <li><a href='/admin/newPotion'>Списки</a></li>
-            </ul>
-        </li>
-        <li><a href='#'>Заказы</a></li>
-        <li><a href='#'>Поставки</a></li>
+        <li><a href="/">Домой</a></li>
+        <li><a href='/login'>Авторизация</a></li>
+        <li><a href='/signUp'>Регистрация</a></li>
         <li><a href='/logout'>Выход</a></li>
     </ul>
 </div>
-
+<div class="shop-container">
+    <h1>Авторизируйтесь для продолжения работы</h1><br>
 <#if model.error.isPresent()>
 <div class="alert alert-danger" role="alert">Логин или пароль введены неверно</div>
 </#if>
-
-
 <div class="content-block">
     <form class="form-horizontal" action="/login" method="post">
-        <input name="login" placeholder="Логин">
-        <input name="pass" placeholder="Пароль">
+        <input name="login" placeholder="Логин"><br><br>
+        <input name="pass" placeholder="Пароль"><br><br>
         <input type="submit">
     </form>
+</div>
 </div>
 </body>

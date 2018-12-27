@@ -8,6 +8,7 @@
     </head>
 </head>
 
+<body>
 
 <div id='cssmenu'>
     <ul>
@@ -40,36 +41,25 @@
         <li><a href='/logout'>Выход</a></li>
     </ul>
 </div>
-<div class="shop-container">
-<h1>Новое зелье!</h1>
-
-<#if error??>
-<br>
-<div>${error}</div>
-</#if>
-<br>
-<div class="content-block">
-    <form class="form-horizontal" action="/admin/newPotion" method="post">
-        <input name="name" placeholder="Имя">
-        <p><textarea name="description" rows="10" cols="30">Введите описание продукта</textarea>
-        <p><input name="available" placeholder="сколько?">
-        <p><input name="cost" placeholder="Стоимость">
-        <p><input name="volume" placeholder="Объем">
-        <p><input name="catalystIng" placeholder="Катализатор" list="catalystIng"></p>
-        <datalist id="catalystIng"><#list model.catalystIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input name="essenceIng" placeholder="Эссенция" list="essenceIng"></p>
-        <datalist id="essenceIng"><#list model.essenceIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input name="conservatorIng" placeholder="Хранитель" list="conservatorIng"></p>
-        <datalist id="conservatorIng"><#list model.conservatorIngs as catIng>
-            <option value="${catIng.name}"></option>
-        </#list></datalist>
-        <p><input type="submit">
-    </form>
-</div>
-</div>
+    <h1>Список ингридиентов!</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Available</th>
+            <th>Type</th>
+        </tr>
+<#list model.ingredients as ingredient>
+    <tr>
+        <td>${ingredient.name}</td>
+        <td>${ingredient.description}</td>
+        <td>${ingredient.cost}</td>
+        <td>${ingredient.available}</td>
+        <td>${ingredient.ingredientType}</td>
+    </tr>
+</#list>
+    </table>
 </body>
 

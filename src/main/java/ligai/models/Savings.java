@@ -11,7 +11,7 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "delivery_product")
+@Table(name = "savings")
 public class Savings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

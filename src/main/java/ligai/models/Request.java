@@ -4,7 +4,6 @@ import ligai.enums.Request_status;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 
 @Getter
@@ -35,6 +34,4 @@ public class Request {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "request")
-    private ArrayList<Delivery_product> delivery_products;
 }
